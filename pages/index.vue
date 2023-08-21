@@ -60,6 +60,7 @@
 
 <script setup>
 import { encodeData } from "../utils/transformer";
+import { useHead } from '@vueuse/head'
 const data = ref({
   n: "",
   d: "",
@@ -75,7 +76,17 @@ const data = ref({
   y: "",
   ls: [],
 });
-
+useHead({
+  title:"example site",
+  script: [
+        {
+            src: "https://scriptstaging.cookieyes.com/client_data/78601c4645bf02eaceeeb14c/script.js",
+            hid: "cookieyes",
+            type: "text/javascript",
+          },
+    ],
+     
+    })
 const prefillDemoData = () => {
   data.value = {
     n: "John Snow",
